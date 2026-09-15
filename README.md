@@ -15,7 +15,7 @@ Linux/macOS:
 sh mvnw spring-boot:run
 ```
 
-A API estará em http://localhost:8080. O banco H2 é criado automaticamente em `data/` e mantém os dados entre execuções. Para encerrar, pressione Ctrl+C.
+A API estará em http://localhost:8080. Configure o PostgreSQL conforme abaixo. Para encerrar, pressione Ctrl+C.
 
 ## Endpoints da aula
 
@@ -57,4 +57,18 @@ O código usa Spring Boot 2.7.18 e javax.persistence, como no projeto da aula, p
 
 https://github.com/ArieLindo993/Trabalho-Estrutura
 
-A versão Java 8 utiliza o arquivo de banco data/clientes-java8, pois a versão anterior do H2 possui outro formato. O banco anterior em data/clientes permanece preservado; os dados antigos não são migrados automaticamente.
+
+
+## PostgreSQL
+
+Crie a database no PostgreSQL local (porta 5432):
+```sql
+CREATE DATABASE "Trabalho-Estrutura";
+```
+
+Defina DB_PASSWORD com a senha do PostgreSQL e, se necessário, DB_USERNAME (padrão: postgres). No IntelliJ, essas variáveis podem ser definidas na configuração de execução. Como alternativa, crie `application-local.properties` na raiz do projeto:
+```properties
+spring.datasource.password=SUA_SENHA
+```
+
+Esse arquivo é ignorado pelo Git. Execute a aplicação a partir da raiz do projeto. O Hibernate criará automaticamente cliente, cidade e estado no esquema public da database Trabalho-Estrutura. O H2 é utilizado nos testes dos endpoints.
