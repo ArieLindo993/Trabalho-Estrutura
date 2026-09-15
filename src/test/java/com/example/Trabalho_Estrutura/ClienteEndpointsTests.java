@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
-    properties = {"spring.datasource.url=jdbc:h2:mem:clientes-test", "spring.jpa.hibernate.ddl-auto=create-drop"})
+    properties = {"spring.datasource.url=jdbc:h2:mem:clientes-test", "spring.datasource.driver-class-name=org.h2.Driver", "spring.datasource.username=sa", "spring.datasource.password=", "spring.jpa.hibernate.ddl-auto=create-drop"})
 class ClienteEndpointsTests {
     @Autowired
     TestRestTemplate http;
