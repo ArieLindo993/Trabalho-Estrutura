@@ -9,34 +9,24 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor //injeta a dependencia de forma automatica
+@RequiredArgsConstructor
 public class ClienteService {
 
     private final ClienteRepository clienteRepository;
 
-/* METODO HARDCODED PARA INJECAO DE DEPENCIA NO CASO CLIENTE REPOSITORY
-    public ClienteService(ClienteRepository clienteRepository) {
-        this.clienteRepository = clienteRepository;
-    }
-
- */
-
     public Cliente salvarCliente(Cliente cliente) {
 
-        Cliente clienteSalvo = clienteRepository.save(cliente);
-        return clienteSalvo;
+        return clienteRepository.save(cliente);
     }
 
     public List<Cliente> listarClientes() {
-        List<Cliente> clientes = clienteRepository.findAll();
-        return clientes;
+         return clienteRepository.findAll();
     }
 
     public Cliente buscarClientePorId(Long id) {
-        Cliente cliente = clienteRepository.findById(id).
+        return clienteRepository.findById(id).
                 orElseThrow(() ->
                         new RuntimeException("Cliente não encontrado!"));
-        return cliente;
     }
 
     public void deletarClientePorId(Long id) {
