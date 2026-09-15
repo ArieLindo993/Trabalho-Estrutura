@@ -4,7 +4,7 @@ Replica os endpoints e os atributos de Cliente do projeto desenvolvido em aula.
 
 ## Executar
 
-Requisito: JDK 21 ou superior. Na primeira execução, é necessária internet para baixar as dependências.
+Requisito: JDK 8 (configure JAVA_HOME para apontar para o JDK 8). Na primeira execução, é necessária internet para baixar as dependências.
 
 Windows:
 ```powershell
@@ -45,7 +45,7 @@ Corpo para cadastrar ou atualizar:
 
 A entidade mantém `id`, `nome`, `tipoPessoa`, `cpfCnpj`, `telefone`, `email`, `logradouro`, `numero`, `bairro`, `cep` e `cidade`. Os valores de tipoPessoa são PF e PJ. Nome é obrigatório e cpfCnpj é único, conforme a aula. Cidade é opcional; para associar uma cidade, ela deve existir no banco e ser enviada como `{"id": 1}`. As entidades Cidade e Estado também mantêm os atributos originais.
 
-O código usa Jakarta Persistence para compatibilidade com o Spring Boot deste projeto. Mantém a estrutura Controller → Service → Repository e os caminhos apresentados em aula.
+O código usa Spring Boot 2.7.18 e javax.persistence, como no projeto da aula, para compatibilidade com Java 8. Mantém a estrutura Controller → Service → Repository e os caminhos apresentados em aula.
 
 ## Testar
 
@@ -56,3 +56,5 @@ O código usa Jakarta Persistence para compatibilidade com o Spring Boot deste p
 ## Repositório para entrega
 
 https://github.com/ArieLindo993/Trabalho-Estrutura
+
+A versão Java 8 utiliza o arquivo de banco data/clientes-java8, pois a versão anterior do H2 possui outro formato. O banco anterior em data/clientes permanece preservado; os dados antigos não são migrados automaticamente.

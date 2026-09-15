@@ -3,7 +3,7 @@ package com.example.Trabalho_Estrutura.entidades;
 import lombok.Getter;
 import lombok.Setter;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
